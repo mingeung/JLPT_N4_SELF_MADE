@@ -37,3 +37,10 @@ Google Cloud Text-to-Speech(Chirp 3 HD)로 미리 만든 파일(`public/audio/`)
 대본을 고친 뒤:
     python3 tools/make_audio.py && python3 tools/build.py
 바뀐 문항만 다시 합성한다. 파일이 없거나 재생에 실패하면 기기 음성으로 대신 읽는다.
+
+## 테스트
+`tests/` 에 브라우저 자동 테스트가 있다(실제 Supabase에 임시 계정을 만들고 끝에 지운다). N3·N4 앱 모두 쓸 수 있다.
+    cd tests && npm i
+    APP_URL=https://jlpt-n4-self-made.vercel.app/ EXAM_Q=85 node ui.mjs
+    APP_URL=https://jlptn3selfmade.vercel.app/ EXAM_Q=102 node ui.mjs
+    APP_URL=... PFX=n4- node r4.mjs     # N3는 PFX=
